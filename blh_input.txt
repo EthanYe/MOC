@@ -1,0 +1,59 @@
+[CONTROL PARAMETERS]
+Time step      0.05             //(s)
+TotalTimes     300.0               //(s)
+Gravity        9.81		         //(m/s^2)	
+Print density  1              //
+Suter          1              //
+
+[RESERVOIRS]
+ID	Head				
+()	(m)				
+R1  300.3
+E1  94.06
+
+
+[PIPES]
+ID	upstream	    downstream	       wavespeed		diameter		length		   rough		r_rough		local_loss_coe				r_llcoe         
+()	Node		    Node		       (m/s)			(m)				 (m)		   ()						()							()
+L1 	R1				J1				   1000.0		    6.0				1200		   0.014		0.014		0.886271					2.1569255
+L2	J1		        J2				   1100.0			5.4				37			   0.00014		0.00014		0.0							0.0
+L3	J2		        E1				   1120.000			10.9668			275.3		   0.014		0.014		0.331381					0.331381
+
+
+
+  
+				
+[VALVE]
+ID   Position	       CDA                 Closing time         EM
+()   Node              ()                  (s)                  ()
+//V1   J7                2.061               30000000001.0					1.5
+
+
+[TURBINWE]
+ID		  Position	       Rate_head	   Rate_flow	Rate_speed		Rate_moment		Diameter	Diameter2	Ta		Altitude	ConditionConversionTime 
+()		  Node				(m)				(m^3/s)		(r/min)			N/m				(m)			(m)			(s)		(m)			(s)
+Tur1      J1				195.0			176.1		250				1191360.0		5.259		3.75		10.8	41			0
+
+[SURGE TANK]
+ID		Position	 InResistance_coe	OutResistance_coe			
+()		Node		 ()					()									
+
+[END BOUNDARY]
+E1   2
+
+[////////////]
+1.Cloing valve
+2.Downstream reservior
+3.Non reflecting boundary
+4.Dead end 
+    4.1 Pressure pulse     4.2 Flow pulse    4.3 Flow = 0
+    
+    
+
+
+
+[OUTPUT FILE]
+E1   L2(E)         //Save the pressure of the node
+  
+[END]
+
