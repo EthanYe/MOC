@@ -11,7 +11,7 @@ void moc()
 	//Calculation of internal surface  
 	///////////////////////////////////////	
 	for (i = 1; i <= N; i++)                           //Calculation of internal nodes of pipes
-	{
+	{//12345678
 		for (int J0 = 1; J0 <= L[i].NN - 1; J0++)
 		{
 			int I1 = i;
